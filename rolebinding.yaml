@@ -1,0 +1,18 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: read-pods
+  namespace: nginx-resources
+  labels:
+    app: nginx
+    resource: rolebinding
+  annotations:
+    description: "RoleBinding for NGINX"
+subjects:
+- kind: ServiceAccount
+  name: my-service-account
+  namespace: nginx-resources
+roleRef:
+  kind: Role
+  name: pod-reader
+  apiGroup: rbac.authorization.k8s.io

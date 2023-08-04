@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+  namespace: nginx-resources
+  labels:
+    app: nginx
+    resource: config
+  annotations:
+    description: "NGINX configuration"
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Hello World</title>
+    </head>
+    <body>
+        <h1>Hello, World!</h1>
+    </body>
+    </html>

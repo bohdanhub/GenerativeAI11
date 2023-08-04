@@ -1,0 +1,14 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: nginx-resources
+  name: pod-reader
+  labels:
+    app: nginx
+    resource: role
+  annotations:
+    description: "Role for NGINX"
+rules:
+- apiGroups: [""]
+  resources: ["pods"]
+  verbs: ["get", "watch", "list"]

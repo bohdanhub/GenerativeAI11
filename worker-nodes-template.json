@@ -1,0 +1,20 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Resources": {
+      "NodeGroup": {
+        "Type": "AWS::EKS::Nodegroup",
+        "Properties": {
+          "ClusterName": "my-cluster",
+          "NodeRole": "arn:aws:iam::011528311707:role/EKSWorkerNodeRole",
+          "Subnets": ["subnet-0f2cbd61dc195e17c", "subnet-00a2dae5fc1545072"],
+          "ScalingConfig": {
+            "MinSize": 1,
+            "MaxSize": 3,
+            "DesiredSize": 3
+          },
+          "InstanceTypes": ["t3.medium"],
+          "AmiType": "AL2_x86_64"
+        }
+      }
+    }
+  }
